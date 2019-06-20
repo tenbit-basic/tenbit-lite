@@ -1,5 +1,7 @@
 package cn.tenbit.hare.lite.util;
 
+import cn.tenbit.hare.lite.exception.HareException;
+
 import java.io.InputStream;
 
 /**
@@ -16,5 +18,13 @@ public class HareClassUtils {
 
     public static InputStream getResourceAsStream(String name) {
         return CURRENT_CLASS.getResourceAsStream(name);
+    }
+
+    public static <T> T newInstance(Class<T> clz) {
+        try {
+            return clz.newInstance();
+        } catch (Exception e) {
+            throw HareException.of(e);
+        }
     }
 }

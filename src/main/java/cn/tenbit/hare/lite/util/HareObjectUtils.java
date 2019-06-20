@@ -26,4 +26,8 @@ public class HareObjectUtils {
     public static boolean isNotNull(Object obj) {
         return !isNull(obj);
     }
+
+    public static <T> T newIfNull(T obj, Class<T> clz) {
+        return ternary(obj != null, obj, HareClassUtils.newInstance(clz));
+    }
 }
