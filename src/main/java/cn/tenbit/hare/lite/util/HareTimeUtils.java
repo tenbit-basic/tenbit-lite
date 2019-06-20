@@ -13,6 +13,10 @@ public class HareTimeUtils {
     private static final DateTimeFormatter formatter = DateTimeFormat.forPattern(HareConsts.PRINT_DATE_PATTERN);
 
     public static String currentTimeMillisString() {
-        return formatter.print(System.currentTimeMillis());
+        return formatter.print(currentTimeMillis());
+    }
+
+    public static Long currentTimeMillis() {
+        return System.currentTimeMillis();
     }
 }
