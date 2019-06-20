@@ -34,4 +34,8 @@ public class HareStringUtils {
     public static String nullIfEmpty(String str) {
         return HareObjectUtils.ternary(StringUtils.isEmpty(str), null, str);
     }
+
+    public static String trim(String str) {
+        return StringUtils.trim(str);
+    }
 }

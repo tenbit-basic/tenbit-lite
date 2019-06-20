@@ -1,5 +1,6 @@
 package cn.tenbit.hare.lite.exception;
 
+import cn.tenbit.hare.lite.constant.HareConsts;
 import cn.tenbit.hare.lite.support.HareExecCustomCode;
 import cn.tenbit.hare.lite.util.HareClassUtils;
 
@@ -30,7 +31,7 @@ public class HareExecCode {
 
     //--------------------------------------------------------------------------------------------//
 
-    public static final HareExecCode UNDEFINED = HareExecCode.ofCode(CODE_UNDEFINED, "undefined");
+    public static final HareExecCode UNDEFINED = HareExecCode.ofCode(CODE_UNDEFINED, HareConsts.EMPTY);
     public static final HareExecCode SUCCESS = HareExecCode.ofCode(CODE_SUCCESS, "success");
     public static final HareExecCode FAILURE = HareExecCode.ofCode(CODE_FAILURE, "failure");
 
