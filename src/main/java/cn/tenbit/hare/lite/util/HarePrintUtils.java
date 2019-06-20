@@ -32,7 +32,7 @@ public class HarePrintUtils {
 
     public static void jsonWithPrefixConsole(String prefix, Object... args) {
         StringBuilder sb = new StringBuilder()
-                .append(HareTimeUtils.currentTimeMillisString())
+                .append(HareTimeUtils.currentFormatTime())
                 .append(HareConsts.SPACE)
                 .append(prefix)
                 .append(" --> ")
