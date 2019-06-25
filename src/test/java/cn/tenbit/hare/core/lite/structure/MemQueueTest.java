@@ -61,11 +61,18 @@ public class MemQueueTest {
 
         for (int idx = 0; idx < 10; idx++) {
             executorService.execute(() -> {
+                int num = 0;
+                int max = 10000;
+                int each = 10;
                 while (true) {
-                    int[] arr = HareRandomUtils.randomIntArray(10, 1, Integer.MAX_VALUE);
+                    if (num >= max) {
+                        return;
+                    }
+                    int[] arr = HareRandomUtils.randomIntArray(each, 1, Integer.MAX_VALUE);
                     List<Integer> list = HareArrayUtils.intArr2IntegerList(arr);
+                    num += each;
                     queue.batchOffer(list);
-                    HareSleepUtils.sleep(TimeUnit.MILLISECONDS, 10);
+                    HareSleepUtils.sleep(TimeUnit.MILLISECONDS, 1);
                 }
             });
         }
