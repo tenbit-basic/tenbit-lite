@@ -57,11 +57,6 @@ public abstract class AbstractHareMemoryQueue<T> implements HareMemoryQueue<T> {
     }
 
     @Override
-    public List<T> smartPoll(int maxPollSize) {
-        return batchPoll(maxPollSize);
-    }
-
-    @Override
     public T take() {
         return getFirst(batchTake(1));
     }
