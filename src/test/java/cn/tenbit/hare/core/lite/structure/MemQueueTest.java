@@ -55,7 +55,7 @@ public class MemQueueTest {
 
     @Test
     public void test2() throws Exception {
-        HareMemoryQueue<Integer> queue = new HareConcurrentMemoryQueue<>();
+        HareMemoryQueue<Integer> queue = new HareConcurrentMemoryQueue<>(10000);
 
         ExecutorService executorService = Executors.newCachedThreadPool();
 

@@ -32,6 +32,13 @@ public class HareConcurrentMemoryQueue<T extends Comparable> extends AbstractHar
 
     private final Status status = new Status(this);
 
+    public HareConcurrentMemoryQueue() {
+    }
+
+    public HareConcurrentMemoryQueue(int maxSize) {
+        super(maxSize);
+    }
+
     @Override
     public int size() {
         return size.get();
