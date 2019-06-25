@@ -21,4 +21,8 @@ public interface HareConsts {
     String SHAPE = "#";
 
     String PRINT_TIME_PATTERN = "[yyyy-MM-dd HH:mm:ss.SSS]";
+
+    String SUPPRESS_WARNING_UNCHECKED = "unchecked";
+    String SUPPRESS_WARNING_RAWTYPE = "rawtype";
+    String SUPPRESS_WARNING_DEPRECATION = "deprecation";
 }
