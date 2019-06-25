@@ -109,11 +109,6 @@ public class HareConcurrentMemoryQueue<T extends Comparable> extends AbstractHar
         return batchGet(expectSize, null, UNLIMITED, true);
     }
 
-    @Override
-    public List<T> smartPoll(int maxPollSize) {
-        return batchPoll(maxPollSize);
-    }
-
     private boolean lock(TimeUnit timeUnit, long timeOut) throws InterruptedException {
         if (timeOut == UNLIMITED) {
             lock.lock();

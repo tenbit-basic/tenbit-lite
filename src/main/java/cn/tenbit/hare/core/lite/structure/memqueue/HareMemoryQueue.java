@@ -34,6 +34,4 @@ public interface HareMemoryQueue<T> {
     List<T> batchTake(int expectSize);
 
     T take();
-
-    List<T> smartPoll(int expectSize);
 }
