@@ -1,5 +1,6 @@
 package cn.tenbit.hare.core.lite.util;
 
+import cn.tenbit.hare.core.lite.function.HareSupplier;
 import org.apache.commons.lang3.ObjectUtils;
 
 /**
@@ -8,8 +9,13 @@ import org.apache.commons.lang3.ObjectUtils;
  */
 public class HareObjectUtils {
 
+    @Deprecated
     public static <T> T ternary(boolean r, T t, T d) {
         return r ? t : d;
+    }
+
+    public static <T> T ternary(HareSupplier<T> f) {
+        return f.get();
     }
 
     public static <T> T defaultIfNull(T t, T d) {
@@ -25,6 +31,6 @@ public class HareObjectUtils {
     }
 
     public static <T> T newIfNull(T obj, Class<T> clz) {
-        return ternary(obj != null, obj, HareClassUtils.newInstance(clz));
+        return ternary(() -> obj != null ? obj : HareClassUtils.newInstance(clz));
     }
 }

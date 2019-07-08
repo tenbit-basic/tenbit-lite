@@ -19,7 +19,7 @@ public class HareTransformUtils {
 
     public static <E, S> List<S> list2List(List<E> list, String field, boolean coverIfExist) {
         Set<S> set = list2Set(list, field, coverIfExist);
-        return HareObjectUtils.ternary(CollectionUtils.isEmpty(set), Collections.<S>emptyList(), new ArrayList<S>(set));
+        return HareObjectUtils.ternary(() -> CollectionUtils.isEmpty(set) ? Collections.<S>emptyList() : new ArrayList<S>(set));
     }
 
     public static <E, S> List<S> list2List(List<E> list, String field) {

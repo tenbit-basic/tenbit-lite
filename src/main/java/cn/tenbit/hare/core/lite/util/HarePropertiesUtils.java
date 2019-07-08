@@ -46,6 +46,6 @@ public class HarePropertiesUtils {
 
     public static String getNotNullProperty(Properties prop, String key) {
         String property = prop.getProperty(key);
-        return HareObjectUtils.ternary(StringUtils.isBlank(property), HareConsts.EMPTY, StringUtils.trim(property));
+        return HareObjectUtils.ternary(() -> StringUtils.isBlank(property) ? HareConsts.EMPTY : StringUtils.trim(property));
     }
 }

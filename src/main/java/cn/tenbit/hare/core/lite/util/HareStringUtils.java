@@ -10,18 +10,18 @@ import org.apache.commons.lang3.StringUtils;
 public class HareStringUtils {
 
     public static String toNullableString(Object str) {
-        return HareObjectUtils.ternary(str == null, null, String.valueOf(str));
+        return HareObjectUtils.ternary(() -> str == null ? null : String.valueOf(str));
     }
 
     public static String toNotNullString(Object str) {
-        return HareObjectUtils.ternary(str == null, HareConsts.EMPTY, String.valueOf(str));
+        return HareObjectUtils.ternary(() -> str == null ? HareConsts.EMPTY : String.valueOf(str));
     }
 
     public static String nullIfBlank(String str) {
-        return HareObjectUtils.ternary(StringUtils.isBlank(str), null, str);
+        return HareObjectUtils.ternary(() -> StringUtils.isBlank(str) ? null : str);
     }
 
     public static String nullIfEmpty(String str) {
-        return HareObjectUtils.ternary(StringUtils.isEmpty(str), null, str);
+        return HareObjectUtils.ternary(() -> StringUtils.isEmpty(str) ? null : str);
     }
 }

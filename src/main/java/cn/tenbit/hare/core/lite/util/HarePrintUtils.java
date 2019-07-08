@@ -15,6 +15,10 @@ import java.io.IOException;
  */
 public class HarePrintUtils {
 
+    public static void newline() {
+        System.out.println();
+    }
+
     public static void console(Object... objs) {
         Object obj = getOutput(objs);
         sout(obj);
@@ -61,19 +65,6 @@ public class HarePrintUtils {
         soutWithTime(sb.toString());
     }
 
-    public static void stringFile(String path, String content) {
-        byte[] bytes = HareObjectUtils.ternary(content == null, ArrayUtils.EMPTY_BYTE_ARRAY, content.getBytes());
-        file(new File(path), bytes);
-    }
-
-    public static void file(File file, byte[] bytes) {
-        try {
-            FileUtils.writeByteArrayToFile(file, bytes);
-        } catch (IOException e) {
-            HareException.makeThrow(e);
-        }
-    }
-
     private static void soutWithTime(Object obj) {
         sout(HareTimeUtils.currentFormatTime() + HareConsts.SPACE + HareStringUtils.toNullableString(obj));
     }
@@ -86,6 +77,21 @@ public class HarePrintUtils {
         if (objs == null) {
             return null;
         }
-        return HareObjectUtils.ternary(objs.length == 1, objs[0], objs);
+        return HareObjectUtils.ternary(() -> objs.length == 1 ? objs[0] : objs);
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------------//
+
+    public static void stringFile(String path, String content) {
+        byte[] bytes = HareObjectUtils.ternary(() -> content == null ? ArrayUtils.EMPTY_BYTE_ARRAY : content.getBytes());
+        file(new File(path), bytes);
+    }
+
+    public static void file(File file, byte[] bytes) {
+        try {
+            FileUtils.writeByteArrayToFile(file, bytes);
+        } catch (IOException e) {
+            HareException.makeThrow(e);
+        }
     }
 }

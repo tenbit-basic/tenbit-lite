@@ -1,5 +1,6 @@
 package cn.tenbit.hare.core.lite;
 
+import cn.tenbit.hare.core.lite.util.HarePrintUtils;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,6 @@ public class MyTest {
 
     @Test
     public void test() {
-
+        HarePrintUtils.console();
     }
 }

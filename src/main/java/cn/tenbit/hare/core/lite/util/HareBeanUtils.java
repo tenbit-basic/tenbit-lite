@@ -47,7 +47,8 @@ public class HareBeanUtils {
         HareAssertUtils.isTrue(StringUtils.isNoneBlank(fieldName), "field name invalid");
         fieldName = StringUtils.trim(fieldName);
         String firstPart = fieldName.substring(0, 1).toUpperCase();
-        String secondPart = HareObjectUtils.ternary(fieldName.length() < 2, HareConsts.EMPTY, fieldName.substring(1));
+        final String finalFieldName = fieldName;
+        String secondPart = HareObjectUtils.ternary(() -> finalFieldName.length() < 2 ? HareConsts.EMPTY : finalFieldName.substring(1));
         return prefix + firstPart + secondPart;
     }
 

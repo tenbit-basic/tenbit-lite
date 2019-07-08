@@ -63,7 +63,7 @@ public abstract class AbstractHareMemoryQueue<T> implements HareMemoryQueue<T> {
 
     private T getFirst(List<T> ts) {
         return HareFunctionUtils.apply(ts, e ->
-                HareObjectUtils.ternary(CollectionUtils.isEmpty(e), null, e.get(0))
+                HareObjectUtils.ternary(() -> CollectionUtils.isEmpty(e) ? null : e.get(0))
         );
     }
 
