@@ -1,7 +1,7 @@
 package cn.tenbit.hare.core.lite.util;
 
-import cn.tenbit.hare.core.lite.bean.copy.HareBeanCopy;
-import cn.tenbit.hare.core.lite.bean.copy.HareBeanCopyFactory;
+import cn.tenbit.hare.core.lite.beancopy.HareBeanCopy;
+import cn.tenbit.hare.core.lite.beancopy.HareBeanCopyFactory;
 import cn.tenbit.hare.core.lite.constant.HareConsts;
 import cn.tenbit.hare.core.lite.exception.HareException;
 import org.apache.commons.collections4.CollectionUtils;

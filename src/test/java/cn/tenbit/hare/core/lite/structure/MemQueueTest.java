@@ -1,8 +1,8 @@
 package cn.tenbit.hare.core.lite.structure;
 
-import cn.tenbit.hare.core.lite.structure.memqueue.HareConcurrentMemoryQueue;
-import cn.tenbit.hare.core.lite.structure.memqueue.HareMemoryQueue;
-import cn.tenbit.hare.core.lite.structure.memqueue.HareMemoryQueueStatus;
+import cn.tenbit.hare.core.lite.memqueue.HareConcurrentMemoryQueue;
+import cn.tenbit.hare.core.lite.memqueue.HareMemoryQueue;
+import cn.tenbit.hare.core.lite.memqueue.HareMemoryQueueStatus;
 import cn.tenbit.hare.core.lite.util.HareArrayUtils;
 import cn.tenbit.hare.core.lite.util.HarePrintUtils;
 import cn.tenbit.hare.core.lite.util.HareRandomUtils;

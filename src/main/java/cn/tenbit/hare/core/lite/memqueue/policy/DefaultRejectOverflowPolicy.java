@@ -1,7 +1,7 @@
-package cn.tenbit.hare.core.lite.structure.memqueue.policy;
+package cn.tenbit.hare.core.lite.memqueue.policy;
 
 import cn.tenbit.hare.core.lite.exception.HareExceptions;
-import cn.tenbit.hare.core.lite.structure.memqueue.HareMemoryQueue;
+import cn.tenbit.hare.core.lite.memqueue.HareMemoryQueue;
 
 /**
  * @Author bangquan.qian

@@ -1,6 +1,6 @@
-package cn.tenbit.hare.core.lite.structure.memqueue;
+package cn.tenbit.hare.core.lite.memqueue;
 
-import cn.tenbit.hare.core.lite.structure.memqueue.policy.HareMemoryQueueOverflowPolicy;
+import cn.tenbit.hare.core.lite.memqueue.policy.HareMemoryQueueOverflowPolicy;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

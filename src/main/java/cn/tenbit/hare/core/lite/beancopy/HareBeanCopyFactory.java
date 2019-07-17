@@ -1,4 +1,4 @@
-package cn.tenbit.hare.core.lite.bean.copy;
+package cn.tenbit.hare.core.lite.beancopy;
 
 /**
  * @Author bangquan.qian

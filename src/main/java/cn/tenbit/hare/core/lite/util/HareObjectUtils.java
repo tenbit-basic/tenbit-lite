@@ -3,6 +3,9 @@ package cn.tenbit.hare.core.lite.util;
 import cn.tenbit.hare.core.lite.function.HareSupplier;
 import org.apache.commons.lang3.ObjectUtils;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * @Author bangquan.qian
  * @Date 2019-06-24 14:24
@@ -32,5 +35,17 @@ public class HareObjectUtils {
 
     public static <T> T newIfNull(T obj, Class<T> clz) {
         return ternary(() -> obj != null ? obj : HareClassUtils.newInstance(clz));
+    }
+
+    public static int safeUnboxing(Integer number, int safe) {
+        return ternary(() -> number == null ? safe : number);
+    }
+
+    public static long safeUnboxing(Long number, int safe) {
+        return ternary(() -> number == null ? safe : number);
+    }
+
+    public static BigDecimal safeSetScale(BigDecimal bd, int scale, RoundingMode mode) {
+        return ternary(() -> bd == null ? bd : bd.setScale(scale, mode));
     }
 }

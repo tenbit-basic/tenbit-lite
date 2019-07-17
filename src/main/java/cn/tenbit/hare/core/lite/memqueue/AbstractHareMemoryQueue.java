@@ -1,7 +1,7 @@
-package cn.tenbit.hare.core.lite.structure.memqueue;
+package cn.tenbit.hare.core.lite.memqueue;
 
-import cn.tenbit.hare.core.lite.structure.memqueue.policy.DefaultRejectOverflowPolicy;
-import cn.tenbit.hare.core.lite.structure.memqueue.policy.HareMemoryQueueOverflowPolicy;
+import cn.tenbit.hare.core.lite.memqueue.policy.DefaultRejectOverflowPolicy;
+import cn.tenbit.hare.core.lite.memqueue.policy.HareMemoryQueueOverflowPolicy;
 import cn.tenbit.hare.core.lite.util.HareFunctionUtils;
 import cn.tenbit.hare.core.lite.util.HareObjectUtils;
 import org.apache.commons.collections4.CollectionUtils;

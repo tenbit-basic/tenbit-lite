@@ -1,4 +1,4 @@
-package cn.tenbit.hare.core.lite.structure.memqueue;
+package cn.tenbit.hare.core.lite.memqueue;
 
 import cn.tenbit.hare.core.lite.constant.HareConsts;
 import cn.tenbit.hare.core.lite.exception.HareException;

@@ -1,4 +1,4 @@
-package cn.tenbit.hare.core.lite.bean.copy;
+package cn.tenbit.hare.core.lite.beancopy;
 
 import cn.tenbit.hare.core.lite.constant.HareConsts;
 import cn.tenbit.hare.core.lite.util.HareClassUtils;

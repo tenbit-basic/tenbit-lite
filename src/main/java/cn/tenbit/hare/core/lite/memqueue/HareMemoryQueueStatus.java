@@ -1,4 +1,4 @@
-package cn.tenbit.hare.core.lite.structure.memqueue;
+package cn.tenbit.hare.core.lite.memqueue;
 
 /**
  * @Author bangquan.qian
