@@ -23,18 +23,22 @@ public class HareObservable {
 
     private final Object lock = new Object();
 
-    public synchronized void addObserver(HareObserver o) {
+    public boolean addObserver(HareObserver o) {
         HareAssertUtils.notNull(o);
-        if (observers.add(o)) {
+        boolean result = observers.add(o);
+        if (result) {
             count.incrementAndGet();
         }
+        return result;
     }
 
-    public synchronized void removeObserver(HareObserver o) {
+    public boolean removeObserver(HareObserver o) {
         HareAssertUtils.notNull(o);
-        if (observers.remove(o)) {
+        boolean result = observers.remove(o);
+        if (result) {
             count.decrementAndGet();
         }
+        return result;
     }
 
     public void notifyObservers() {
