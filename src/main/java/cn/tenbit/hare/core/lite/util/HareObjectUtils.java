@@ -5,6 +5,7 @@ import org.apache.commons.lang3.ObjectUtils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Comparator;
 
 /**
  * @Author bangquan.qian
@@ -35,6 +36,29 @@ public class HareObjectUtils {
 
     public static <T> T newIfNull(T obj, Class<T> clz) {
         return ternary(() -> obj != null ? obj : HareClassUtils.newInstance(clz));
+    }
+
+    public static <T> T requireNonNull(T obj) {
+        if (obj == null) {
+            throw new NullPointerException();
+        }
+        return obj;
+    }
+
+    public static boolean equals(Object a, Object b) {
+        return (a == b) || (a != null && a.equals(b));
+    }
+
+    public static int safeHashCode(Object o, int safe) {
+        return o != null ? o.hashCode() : safe;
+    }
+
+    public static <T> int safeCompare(T a, T b, int safe, Comparator<? super T> c) {
+        return (a == b) ? safe : c.compare(a, b);
+    }
+
+    public static String safeToString(Object o, String def) {
+        return (o != null) ? o.toString() : def;
     }
 
     public static int safeUnboxing(Integer number, int safe) {
