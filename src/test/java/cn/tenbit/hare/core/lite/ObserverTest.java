@@ -1,7 +1,7 @@
 package cn.tenbit.hare.core.lite;
 
-import cn.tenbit.hare.core.lite.observer.Observable;
-import cn.tenbit.hare.core.lite.observer.Observer;
+import cn.tenbit.hare.core.lite.observer.HareObservable;
+import cn.tenbit.hare.core.lite.observer.HareObserver;
 import cn.tenbit.hare.core.lite.util.HareAssertUtils;
 import cn.tenbit.hare.core.lite.util.HarePrintUtils;
 import org.junit.Test;
@@ -14,10 +14,10 @@ public class ObserverTest {
 
     @Test
     public void test() {
-        Observer observer1 = new Observer() {
+        HareObserver observer1 = new HareObserver() {
 
             @Override
-            public void update(Observable observable, Object arg) {
+            public void update(HareObservable observable, Object arg) {
                 HarePrintUtils.console("observer1 received");
             }
 
@@ -28,10 +28,10 @@ public class ObserverTest {
             }
         };
 
-        Observer observer2 = new Observer() {
+        HareObserver observer2 = new HareObserver() {
 
             @Override
-            public void update(Observable observable, Object arg) {
+            public void update(HareObservable observable, Object arg) {
                 HarePrintUtils.console("observer2 received");
             }
 
@@ -43,7 +43,7 @@ public class ObserverTest {
         };
 
 
-        Observable observable = new Observable();
+        HareObservable observable = new HareObservable();
         observable.addObserver(observer1);
         observable.addObserver(observer2);
 
