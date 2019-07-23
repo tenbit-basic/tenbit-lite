@@ -9,28 +9,29 @@ import cn.tenbit.hare.core.lite.function.HareExecutor;
  */
 public class HareInvokeUtils {
 
-    public static void invoke(HareExecutor f) {
-        f.execute();
+    public static <T> T invoke(HareExecutor<T> f) {
+        return invokeWithTurnRe(f);
     }
 
-    public static Long invokeWithRecordTime(HareExecutor f) {
+    public static <T> Long invokeWithRecordTime(HareExecutor<T> f) {
         Long start = HareTimeUtils.currentTimeMs();
-        f.execute();
+        invokeWithTurnRe(f);
         Long end = HareTimeUtils.currentTimeMs();
         return end - start;
     }
 
-    public static void invokeWithSwallow(HareExecutor f) {
+    public static <T> T invokeWithSwallow(HareExecutor<T> f) {
         try {
-            f.execute();
+            return f.execute();
         } catch (Throwable e) {
             HareLogUtils.error("invoke", e);
         }
+        return null;
     }
 
-    public static void invokeWithTurnRe(HareExecutor f) {
+    public static <T> T invokeWithTurnRe(HareExecutor<T> f) {
         try {
-            f.execute();
+            return f.execute();
         } catch (RuntimeException e) {
             throw e;
         } catch (Throwable e) {

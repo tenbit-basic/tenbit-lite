@@ -5,7 +5,7 @@ package cn.tenbit.hare.core.lite.function;
  * @Date 2019-06-26 14:39
  */
 @FunctionalInterface
-public interface HareExecutor {
+public interface HareExecutor<T> {
 
-    void execute();
+    T execute() throws Throwable;
 }
