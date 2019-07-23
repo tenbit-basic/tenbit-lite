@@ -10,7 +10,7 @@ public class Inet4AddressTest {
 
     @Test
     public void test() {
-        
+
         String rawIp = HareInet4AddressUtils.number2Text(
                 HareInet4AddressUtils.bytes2Number(
                         HareInet4AddressUtils.text2Bytes(
