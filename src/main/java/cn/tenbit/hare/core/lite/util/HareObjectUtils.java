@@ -65,7 +65,7 @@ public class HareObjectUtils {
         return ternary(() -> number == null ? safe : number);
     }
 
-    public static long safeUnboxing(Long number, int safe) {
+    public static long safeUnboxing(Long number, long safe) {
         return ternary(() -> number == null ? safe : number);
     }
 
