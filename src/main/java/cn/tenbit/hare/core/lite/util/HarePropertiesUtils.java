@@ -2,8 +2,10 @@ package cn.tenbit.hare.core.lite.util;
 
 import cn.tenbit.hare.core.lite.constant.HareConsts;
 import cn.tenbit.hare.core.lite.exception.HareException;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -20,10 +22,14 @@ public class HarePropertiesUtils {
     public static Properties loadFromPropertiesFile(String path) {
         HareAssertUtils.isTrue(StringUtils.isNoneBlank(path), "path invalid");
         path = StringUtils.trim(path);
+        InputStream is = null;
         if (path.startsWith(CLASS_PATH_PREFIX)) {
             path = StringUtils.trim(path.substring(CLASS_PATH_PREFIX.length()));
+            is = HareClassUtils.getResourceAsStream(path);
+        } else {
+            File file = new File(path);
+            is = HareInvokeUtils.invokeWithTurnRe(() -> FileUtils.openInputStream(file));
         }
-        InputStream is = HareClassUtils.getResourceAsStream(path);
         return load(is);
     }
 
