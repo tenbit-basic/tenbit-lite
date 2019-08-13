@@ -1,13 +1,21 @@
 package cn.tenbit.hare.core.lite.log;
 
-import lombok.extern.apachecommons.CommonsLog;
-
 /**
  * @Author bangquan.qian
  * @Date 2019-06-24 14:47
  */
-@CommonsLog
+// @CommonsLog
 public class HareCommonsLog implements HareLog {
+
+    private org.apache.commons.logging.Log log;
+
+    public HareCommonsLog() {
+        this(HareCommonsLog.class);
+    }
+
+    public HareCommonsLog(Class clz) {
+        log = org.apache.commons.logging.LogFactory.getLog(clz);
+    }
 
     @Override
     public void trace(String msg) {

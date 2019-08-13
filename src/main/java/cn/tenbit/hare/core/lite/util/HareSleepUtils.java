@@ -1,7 +1,5 @@
 package cn.tenbit.hare.core.lite.util;
 
-import cn.tenbit.hare.core.lite.exception.HareException;
-
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,10 +17,9 @@ public class HareSleepUtils {
     }
 
     public static void sleep(TimeUnit unit, long time) {
-        try {
+        HareInvokeUtils.invokeWithTurnRe(() -> {
             unit.sleep(time);
-        } catch (Exception e) {
-            throw HareException.of(e);
-        }
+            return null;
+        });
     }
 }

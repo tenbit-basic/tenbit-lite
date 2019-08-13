@@ -1,7 +1,6 @@
 package cn.tenbit.hare.core.lite.util;
 
 import cn.tenbit.hare.core.lite.constant.HareConsts;
-import cn.tenbit.hare.core.lite.exception.HareException;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -36,11 +35,9 @@ public class HareBeanUtils {
     }
 
     private static Method getGsetMethod(Class clz, String prefix, String fieldName) {
-        try {
+        return HareInvokeUtils.invokeWithTurnRe(() -> {
             return ClassUtils.getPublicMethod(clz, getGsetMethodName(prefix, fieldName));
-        } catch (NoSuchMethodException e) {
-            throw HareException.of(e);
-        }
+        });
     }
 
     private static String getGsetMethodName(String prefix, String fieldName) {

@@ -1,6 +1,6 @@
 package cn.tenbit.hare.core.lite.util;
 
-import cn.tenbit.hare.core.lite.exception.HareException;
+import org.apache.commons.lang3.ClassUtils;
 
 import java.io.InputStream;
 
@@ -12,6 +12,12 @@ public class HareClassUtils {
 
     private static final Class CURRENT_CLASS = HareClassUtils.class;
 
+    public static Class getClass(String name) {
+        return HareInvokeUtils.invokeWithTurnRe(() -> {
+            return ClassUtils.getClass(name);
+        });
+    }
+
     public static <T> Class<T> loadClass(Class<T> clz) {
         return clz;
     }
@@ -21,10 +27,8 @@ public class HareClassUtils {
     }
 
     public static <T> T newInstance(Class<T> clz) {
-        try {
+        return HareInvokeUtils.invokeWithTurnRe(() -> {
             return clz.newInstance();
-        } catch (Exception e) {
-            throw HareException.of(e);
-        }
+        });
     }
 }

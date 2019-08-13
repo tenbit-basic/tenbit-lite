@@ -9,4 +9,8 @@ public class HareLogFactory {
     public static HareLog getLogger() {
         return new HareCommonsLog();
     }
+
+    public static HareLog getLogger(Class clz) {
+        return new HareCommonsLog(clz);
+    }
 }

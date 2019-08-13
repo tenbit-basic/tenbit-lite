@@ -1,7 +1,6 @@
 package cn.tenbit.hare.core.lite.util;
 
 import cn.tenbit.hare.core.lite.constant.HareConsts;
-import cn.tenbit.hare.core.lite.exception.HareException;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.MapUtils;
 
@@ -43,11 +42,9 @@ public class HareTransformUtils {
     }
 
     public static <K, E> Map<K, E> list2Map(List<E> list, String field, boolean coverIfExist) {
-        try {
+        return HareInvokeUtils.invokeWithTurnRe(() -> {
             return doList2Map(list, field, coverIfExist);
-        } catch (Exception e) {
-            throw HareException.of(e);
-        }
+        });
     }
 
     private static <K, E> Map<K, E> doList2Map(List<E> list, String field, boolean coverIfExist) throws Exception {
